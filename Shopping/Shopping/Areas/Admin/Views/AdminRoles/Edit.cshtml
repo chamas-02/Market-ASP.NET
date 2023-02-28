@@ -1,0 +1,31 @@
+﻿@model Shopping.Models.Role
+
+@{
+    ViewData["Title"] = "Chỉnh sửa quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+			<a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Access list</a>
+            <span class="breadcrumb-item active">Edit for "@Model.RoleName"</span>
+        </nav>
+    </div>
+</div>
+
+<form asp-action="Edit" asp-route-id="@Model.RoleId" method="post">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<input type="hidden" asp-for="RoleId" />
+	<div class="form-group col-md-6">
+		<label for="inputAddress">Name</label>
+		<input type="text" class="form-control" asp-for="RoleName" placeholder="@Model.RoleName" maxlength="45">
+	</div>
+	<div class="form-group col-md-6">
+		<label for="inputAddress">Description</label>
+		<input type="text" class="form-control" asp-for="Description" placeholder="@Model.Description" maxlength="45">
+	</div>
+	<button class="btn btn-primary btn-tone m-r-5" type="submit">Save</button>
+	<a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" role="button">Cancel</a>
+</form>
+
