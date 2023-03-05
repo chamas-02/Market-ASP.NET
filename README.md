@@ -31,11 +31,11 @@ Giới thiệu về `ASP.NET Core` và các kiến thức cần biết
 
 <a name="cacpackage"></a>
 ## Package cần thiết
-Install-Package AE.Net. Mail
-Install-Package Microsoft.AspNetCore. Mvc. Razor.RuntimeCompilation -Version 
-Install-Package Microsoft.EntityFrameworkCore.Tools
-Install-Package Microsoft.Entity FrameworkCore.SqlServer
-Install-Package Microsoft.EntityFrameworkCore
-Phân trang: PagedListCore.MVC – authors Troy, Hieu Le
-AspNetCoreHero.ToastNotification
+- Install-Package AE.Net. Mail
+- Install-Package Microsoft.AspNetCore. Mvc. Razor.RuntimeCompilation -Version 
+- Install-Package Microsoft.EntityFrameworkCore.Tools
+- Install-Package Microsoft.Entity FrameworkCore.SqlServer
+- Install-Package Microsoft.EntityFrameworkCore
+- Phân trang: PagedListCore.MVC – authors Troy, Hieu Le
+- AspNetCoreHero.ToastNotification
 
