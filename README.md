@@ -10,7 +10,7 @@ Xây Dựng Web Bán hàng Online - Asp.Net Core Mvc 6.0
 [III. Các package cần thiết](#cacpackage)
 
 <a name="Modau"></a>
-## I.Mở đầu
+## I. Mở đầu
 Giới thiệu về `ASP.NET Core` và các kiến thức cần biết
 `ASP.Net Core` là một framework nguồn mở, đa nền tảng xây dựng dựa trên .NET Core dành cho việc xây dựng các ứng dụng dựa trên kết nối Internet, cụ thể ASP.NET Core có thể:
 -	Xây dựng các ứng dụng web, IoT, backend cho ứng dụng di động (API).
@@ -20,7 +20,7 @@ Giới thiệu về `ASP.NET Core` và các kiến thức cần biết
 -	ASP.NET Core thì có thể sử dụng đến ASP.NET Core MVC để hỗ trợ kiến trúc MVC (Model-View-Controller), để phát triển ứng dụng module hóa cao hơn và hỗ trợ các công nghệ như Razor.
 
 <a name="kienthuccanthiet"></a>
-## II.Kiến thức cần thiết
+## II. Kiến thức cần thiết
 Để phát triển ứng dụng Web yêu cầu các kiến thức:
 -	C#: DI (Dependency Injection), Delegate, Lambda, Linq, Asynchronous, HTTP, ADO.NET/Entity Framework
 -	HTML
@@ -32,7 +32,7 @@ Giới thiệu về `ASP.NET Core` và các kiến thức cần biết
 -	ASP.NET MVC
 
 <a name="cacpackage"></a>
-## III.Package cần thiết
+## III. Package cần thiết
 - Install-Package AE.Net. Mail
 - Install-Package Microsoft.AspNetCore. Mvc. Razor.RuntimeCompilation -Version 
 - Install-Package Microsoft.EntityFrameworkCore.Tools
