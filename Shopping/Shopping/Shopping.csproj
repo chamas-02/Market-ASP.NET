@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -29,6 +29,113 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Adminassets\summernote\font\summernote.woff2" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ar-AR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ar-AR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-az-AZ.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-az-AZ.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-bg-BG.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-bg-BG.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ca-ES.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ca-ES.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-cs-CZ.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-cs-CZ.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-da-DK.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-da-DK.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-de-DE.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-de-DE.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-el-GR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-el-GR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-es-ES.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-es-ES.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-es-EU.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-es-EU.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-fa-IR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-fa-IR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-fi-FI.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-fi-FI.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-fr-FR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-fr-FR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-gl-ES.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-gl-ES.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-he-IL.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-he-IL.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-hr-HR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-hr-HR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-hu-HU.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-hu-HU.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-id-ID.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-id-ID.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-it-IT.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-it-IT.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ja-JP.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ja-JP.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ko-KR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ko-KR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-lt-LT.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-lt-LT.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-lt-LV.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-lt-LV.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-mn-MN.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-mn-MN.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-nb-NO.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-nb-NO.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-nl-NL.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-nl-NL.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-pl-PL.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-pl-PL.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-pt-BR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-pt-BR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-pt-PT.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-pt-PT.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ro-RO.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ro-RO.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ru-RU.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ru-RU.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sk-SK.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sk-SK.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sl-SI.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sl-SI.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sr-RS-Latin.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sr-RS-Latin.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sr-RS.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sr-RS.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sv-SE.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-sv-SE.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ta-IN.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-ta-IN.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-th-TH.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-th-TH.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-tr-TR.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-tr-TR.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-uk-UA.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-uk-UA.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-uz-UZ.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-uz-UZ.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-vi-VN.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-vi-VN.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-zh-CN.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-zh-CN.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-zh-TW.js" />
+    <None Include="wwwroot\Adminassets\summernote\lang\summernote-zh-TW.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\plugin\databasic\summernote-ext-databasic.js" />
+    <None Include="wwwroot\Adminassets\summernote\plugin\hello\summernote-ext-hello.js" />
+    <None Include="wwwroot\Adminassets\summernote\plugin\specialchars\summernote-ext-specialchars.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-bs4.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-bs4.js.map" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-bs4.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-bs4.min.js.map" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-lite.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-lite.js.map" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-lite.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote-lite.min.js.map" />
+    <None Include="wwwroot\Adminassets\summernote\summernote.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote.js.map" />
+    <None Include="wwwroot\Adminassets\summernote\summernote.min.js" />
+    <None Include="wwwroot\Adminassets\summernote\summernote.min.js.map" />
   </ItemGroup>
 
 </Project>

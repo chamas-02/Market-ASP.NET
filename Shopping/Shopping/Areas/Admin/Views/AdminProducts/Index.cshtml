@@ -2,7 +2,7 @@
 @model PagedList.Core.IPagedList<Shopping.Models.Product>
 @{
     int CurrentPage = ViewBag.CurrentPage;
-    ViewData["Title"] = "Danh sách sản phẩm" + CurrentPage;
+    ViewData["Title"] = "Danh sách sản phẩm - trang " + CurrentPage;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 
 }
@@ -41,7 +41,7 @@
                     <i class="anticon anticon-plus-circle m-r-5"></i>
                     <span>Add Product</span>
                 </a>
-              </div>
+            </div>
         </div>
 
         <div class="table-responsive">

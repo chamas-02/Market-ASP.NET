@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Enlink - Admin Dashboard Template</title>
+    <title>@ViewData["Title"]</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="~/lib/favicon.ico">
@@ -382,6 +382,7 @@
     <script src="~/Adminassets/js/app.min.js"></script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Styles", required: false)
 </body>
 
 </html>
