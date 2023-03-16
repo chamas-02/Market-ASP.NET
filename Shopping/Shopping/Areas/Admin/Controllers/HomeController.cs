@@ -2,9 +2,9 @@
 
 namespace Shopping.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
-        [Area("Admin")]
         public IActionResult Index()
         {
             return View();

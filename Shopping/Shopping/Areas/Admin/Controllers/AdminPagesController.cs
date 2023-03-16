@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification.Notyf;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
+using Shopping.Helpper;
 using Shopping.Models;
 
 namespace Shopping.Areas.Admin.Controllers
@@ -14,10 +17,12 @@ namespace Shopping.Areas.Admin.Controllers
     public class AdminPagesController : Controller
     {
         private readonly MarketGOContext _context;
+        public INotyfService _notifyService { get; }
 
-        public AdminPagesController(MarketGOContext context)
+        public AdminPagesController(MarketGOContext context, INotyfService notifyService)
         {
             _context = context;
+            _notifyService = notifyService;
         }
 
         // GET: Admin/AdminPages
@@ -27,7 +32,7 @@ namespace Shopping.Areas.Admin.Controllers
             var pageSize = 20;
             var lsPage = _context.Pages
                 .AsNoTracking()
-                .OrderByDescending(x => x.PageId);
+                .OrderBy(x => x.PageId);
             PagedList<Page> models = new PagedList<Page>(lsPage, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
             return View(models);
@@ -62,12 +67,25 @@ namespace Shopping.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PageId,PageName,Contents,Thumb,Published,Title,MetaDesc,MetaKey,Alias,CreatedDate,Ordering")] Page page)
+        public async Task<IActionResult> Create([Bind("PageId,PageName,Contents,Thumb,Published,Title,MetaDesc,MetaKey,Alias,CreatedDate,Ordering")] Page page, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
+
+                if (fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string imageName = Utilities.SEOUrl(page.PageName) + extension;
+                    page.Thumb = await Utilities.UploadFile(fThumb, @"pages", imageName.ToLower());
+                }
+
+                if (string.IsNullOrEmpty(page.Thumb)) page.Thumb = "default.jpg";
+                page.Alias = Utilities.SEOUrl(page.PageName);
+                page.CreatedDate = DateTime.Now;
+
                 _context.Add(page);
                 await _context.SaveChangesAsync();
+                _notifyService.Success("Tạo mới thành công");
                 return RedirectToAction(nameof(Index));
             }
             return View(page);
@@ -94,7 +112,7 @@ namespace Shopping.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PageId,PageName,Contents,Thumb,Published,Title,MetaDesc,MetaKey,Alias,CreatedDate,Ordering")] Page page)
+        public async Task<IActionResult> Edit(int id, [Bind("PageId,PageName,Contents,Thumb,Published,Title,MetaDesc,MetaKey,Alias,CreatedDate,Ordering")] Page page, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != page.PageId)
             {
@@ -105,7 +123,17 @@ namespace Shopping.Areas.Admin.Controllers
             {
                 try
                 {
+                    if (fThumb != null)
+                    {
+                        string extension = Path.GetExtension(fThumb.FileName);
+                        string image = Utilities.SEOUrl(page.PageName) + extension;
+                        page.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
+                    }
+                    if (string.IsNullOrEmpty(page.Thumb)) page.Thumb = "default.jpg";                  
+                    page.Alias = Utilities.SEOUrl(page.PageName);
+
                     _context.Update(page);
+                    _notifyService.Success("Cập nhật thành công");
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -155,6 +183,7 @@ namespace Shopping.Areas.Admin.Controllers
             if (page != null)
             {
                 _context.Pages.Remove(page);
+                _notifyService.Success("Xóa thành công");
             }
             
             await _context.SaveChangesAsync();

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
 using Shopping.Helpper;
 using Shopping.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using AspNetCoreHero.ToastNotification.Notyf;
 
 namespace Shopping.Areas.Admin.Controllers
 {
@@ -16,13 +17,12 @@ namespace Shopping.Areas.Admin.Controllers
     public class AdminProductsController : Controller
     {
         private readonly MarketGOContext _context;
+        public INotyfService _notifyService { get; }
 
-        public INotyfService _notyfService { get; }
-
-        public AdminProductsController(MarketGOContext context, INotyfService notyfService)
+        public AdminProductsController(MarketGOContext context, INotyfService notifyService)
         {
             _context = context;
-            _notyfService = notyfService;
+            _notifyService = notifyService;
         }
 
         // GET: Admin/AdminProducts
@@ -120,6 +120,8 @@ namespace Shopping.Areas.Admin.Controllers
                     string image = Utilities.SEOUrl(product.ProductName) + extension;
                     product.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
                 }
+
+                if (product.Discount == null) product.Discount = 0;
                 if (string.IsNullOrEmpty(product.Thumb)) product.Thumb = "default.jpg";
                 product.Alias = Utilities.SEOUrl(product.ProductName);
                 product.DateModified = DateTime.Now;
@@ -127,6 +129,7 @@ namespace Shopping.Areas.Admin.Controllers
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+                _notifyService.Success("Tạo mới thành công");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["DanhMuc"] = new SelectList(_context.Categories, "CatId", "CatName", product.CatId);
@@ -172,11 +175,13 @@ namespace Shopping.Areas.Admin.Controllers
                         string image = Utilities.SEOUrl(product.ProductName) + extension;
                         product.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
                     }
-                    if (string.IsNullOrEmpty(product.Thumb)) product.Thumb = "thumb-16.jpg";
+                    if (string.IsNullOrEmpty(product.Thumb)) product.Thumb = "default.jpg";
+                    if (product.Discount == null) product.Discount = 0;
                     product.Alias = Utilities.SEOUrl(product.ProductName);
                     product.DateModified = DateTime.Now;
 
                     _context.Update(product);
+                    _notifyService.Success("Cập nhật thành công");
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -228,6 +233,7 @@ namespace Shopping.Areas.Admin.Controllers
             if (product != null)
             {
                 _context.Products.Remove(product);
+                _notifyService.Success("Xóa thành công");
             }
             
             await _context.SaveChangesAsync();

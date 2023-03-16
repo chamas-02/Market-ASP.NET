@@ -46,21 +46,21 @@
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.VisualStudio.Web.BrowserLink": {
               "target": "Package",
@@ -68,11 +68,11 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration": {
               "target": "Package",
-              "version": "[6.0.12, )"
+              "version": "[6.0.13, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.12, )"
+              "version": "[6.0.13, )"
             },
             "NToastNotify": {
               "target": "Package",

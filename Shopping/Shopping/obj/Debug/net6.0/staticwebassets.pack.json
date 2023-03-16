@@ -233,6 +233,10 @@
       "PackagePath": "staticwebassets\\Adminassets\\images\\avatars\\thumb-9.jpg"
     },
     {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\Adminassets\\images\\default.jpg",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\default.jpg"
+    },
+    {
       "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\Adminassets\\images\\logo\\favicon.png",
       "PackagePath": "staticwebassets\\Adminassets\\images\\logo\\favicon.png"
     },
@@ -4697,8 +4701,64 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\pages\\huong-dan-dang-ky-tai-khoan.jpg",
+      "PackagePath": "staticwebassets\\images\\pages\\huong-dan-dang-ky-tai-khoan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\pages\\huong-dan-mua-hang.jpg",
+      "PackagePath": "staticwebassets\\images\\pages\\huong-dan-mua-hang.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\pages\\testing.jpg",
+      "PackagePath": "staticwebassets\\images\\pages\\testing.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\banh-an-sang-cest-bon-cream-egg.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\banh-an-sang-cest-bon-cream-egg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\cam-vang-navel.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\cam-vang-navel.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\huong-dan-dang-ky-tai-khoan.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\huong-dan-dang-ky-tai-khoan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\huong-dan-mua-hang.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\huong-dan-mua-hang.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\keo-gao-luc-rong-bien-gion-tan-tan-hue.gif",
+      "PackagePath": "staticwebassets\\images\\products\\keo-gao-luc-rong-bien-gion-tan-tan-hue.gif"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\keo-gao-luc-rong-bien-gion-tan-tan-hue.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\keo-gao-luc-rong-bien-gion-tan-tan-hue.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\keo-gao-luc-rong-bien-gion-tan-tan-hue.png",
+      "PackagePath": "staticwebassets\\images\\products\\keo-gao-luc-rong-bien-gion-tan-tan-hue.png"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\quat-treo-tuong-toshiba.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\quat-treo-tuong-toshiba.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\testing.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\testing.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\thanh-gao-lut-hat-ngu-coc.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\thanh-gao-lut-hat-ngu-coc.jpg"
+    },
+    {
       "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\thanh-gao-lut-hat-ngu-coc.png",
       "PackagePath": "staticwebassets\\images\\products\\thanh-gao-lut-hat-ngu-coc.png"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\thung-24-lon-nuoc-tang-luc-rockstar.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\thung-24-lon-nuoc-tang-luc-rockstar.jpg"
     },
     {
       "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\js\\site.js",
