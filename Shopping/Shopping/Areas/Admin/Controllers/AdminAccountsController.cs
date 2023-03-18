@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Shopping.Models;
+using AspNetCoreHero.ToastNotification.Notyf;
 
 namespace Shopping.Areas.Admin.Controllers
 {
@@ -14,10 +16,12 @@ namespace Shopping.Areas.Admin.Controllers
     public class AdminAccountsController : Controller
     {
         private readonly MarketGOContext _context;
+        public INotyfService _notifyService { get; }
 
-        public AdminAccountsController(MarketGOContext context)
+        public AdminAccountsController(MarketGOContext context, INotyfService notifyService)
         {
             _context = context;
+            _notifyService = notifyService;
         }
 
         // GET: Admin/AdminAccounts
@@ -74,6 +78,7 @@ namespace Shopping.Areas.Admin.Controllers
             {
                 _context.Add(account);
                 await _context.SaveChangesAsync();
+                _notifyService.Success("Tạo mới thành công");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleId", account.RoleId);

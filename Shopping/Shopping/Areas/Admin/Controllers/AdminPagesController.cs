@@ -127,7 +127,7 @@ namespace Shopping.Areas.Admin.Controllers
                     {
                         string extension = Path.GetExtension(fThumb.FileName);
                         string image = Utilities.SEOUrl(page.PageName) + extension;
-                        page.Thumb = await Utilities.UploadFile(fThumb, @"products", image.ToLower());
+                        page.Thumb = await Utilities.UploadFile(fThumb, @"pages", image.ToLower());
                     }
                     if (string.IsNullOrEmpty(page.Thumb)) page.Thumb = "default.jpg";                  
                     page.Alias = Utilities.SEOUrl(page.PageName);

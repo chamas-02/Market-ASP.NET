@@ -10,7 +10,7 @@
     <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
 }
 
-<form asp-controller="AdminCategories" asp-action="Create" method="post" enctype="multipart/form-data">
+<form asp-controller="AdminCategories" asp-action="Create" method="post" enctype="multipart/form-data" id="form-validation">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="page-header no-gutters has-tab">
         <ul class="nav nav-tabs">
@@ -33,11 +33,11 @@
                     <!-- ========== Tên ========== -->
                     <div class="form-group">
                         <label class="font-weight-semibold" for="categoriesName">Tên danh mục</label>
-                        <input type="text" class="form-control" asp-for="CatName">
+                        <input type="text" class="form-control" asp-for="CatName" required maxlength="50">
                     </div>
                     <div class="form-group">
                         <label class="font-weight-semibold" for="Ordering">Ordering</label>
-                        <input type="text" class="form-control" asp-for="Ordering">
+                        <input type="number" class="form-control" asp-for="Ordering" required min="1" max="10">
                     </div>
 
                     <!-- ========== Ảnh đại diện ========== -->
@@ -65,19 +65,19 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label class="font-weight-semibold">Title</label>
-                        <input type="text" class="form-control" asp-for="Title">
+                        <input type="text" class="form-control" asp-for="Title" maxlength="250">
                     </div>
                     <div class="form-group">
                         <label class="font-weight-semibold">Meta Key</label>
-                        <input type="text" class="form-control" asp-for="MetaKey">
+                        <input type="text" class="form-control" asp-for="MetaKey" maxlength="250">
                     </div>
                     <div class="form-group">
                         <label class="font-weight-semibold">Meta Description</label>
-                        <input type="text" class="form-control" asp-for="MetaDesc">
+                        <input type="text" class="form-control" asp-for="MetaDesc" maxlength="250">
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-semibold" for="productFit">Tags</label>
-                        <input type="text" class="form-control" asp-for="Alias">
+                        <label class="font-weight-semibold" for="productFit">Alias</label>
+                        <input type="text" class="form-control" asp-for="Alias" disabled>
                     </div>
                 </div>
             </div>
@@ -120,5 +120,12 @@
             });
         });
     </script>
-
+    <script>
+        $("#form-validation").validate({
+            ignore: ':hidden:not(:checkbox)',
+            errorElement: 'label',
+            errorClass: 'is-invalid',
+            validClass: 'is-valid',
+        });
+    </script>
 }

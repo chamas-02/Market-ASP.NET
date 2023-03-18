@@ -5,13 +5,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
-
 <div class="page-header">
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="breadcrumb-item">Danh sách Page</a>
+            <a asp-area="Admin" asp-controller="AdminPages" asp-action="Index" class="breadcrumb-item">Danh sách Page</a>
             <span class="breadcrumb-item active">Thông tin trang : @Model.PageName</span>
         </nav>
     </div>

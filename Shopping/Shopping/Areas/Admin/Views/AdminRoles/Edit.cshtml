@@ -4,28 +4,52 @@
     ViewData["Title"] = Model.RoleName + " " + "- Chỉnh sửa quyền truy cập";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="page-header">
-    <div class="header-sub-title">
-        <nav class="breadcrumb breadcrumb-dash">
-            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-			<a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Access list</a>
-            <span class="breadcrumb-item active">Edit for "@Model.RoleName"</span>
-        </nav>
-    </div>
+	<div class="header-sub-title">
+		<nav class="breadcrumb breadcrumb-dash">
+			<a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+			<a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" class="breadcrumb-item">Danh sách quyền truy cập</a>
+			<span class="breadcrumb-item active">Thông tin quyền : @Model.RoleName</span>
+		</nav>
+	</div>
 </div>
 
-<form asp-action="Edit" asp-route-id="@Model.RoleId" method="post">
-	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-	<input type="hidden" asp-for="RoleId" />
-	<div class="form-group col-md-6">
-		<label for="inputAddress">Name</label>
-		<input type="text" class="form-control" asp-for="RoleName" placeholder="@Model.RoleName" maxlength="45">
-	</div>
-	<div class="form-group col-md-6">
-		<label for="inputAddress">Description</label>
-		<input type="text" class="form-control" asp-for="Description" placeholder="@Model.Description" maxlength="45">
-	</div>
-	<button class="btn btn-primary btn-tone m-r-5" type="submit">Save</button>
-	<a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" role="button">Cancel</a>
+<form asp-controller="AdminRoles" asp-action="Edit" asp-route-id="@Model.RoleId" method="post" id="form-validation">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="RoleId" />
+    <div class="card">
+        <div class="card-body">
+            <h4>Thông tin quyền truy cập</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Role Name *</label>
+                        <input type="text" class="form-control" asp-for="RoleName" placeholder="@Model.RoleName" maxlength="45" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold">Description *</label>
+                        <input type="text" class="form-control" asp-for="Description" placeholder="@Model.Description" maxlength="45" required>
+                    </div>
+                    <div class="m-b-15">
+                        <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" role="button">Cancel</a>
+                        <button class="btn btn-primary" type="submit">
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
 
+@section Scripts {
+    <script>
+        $("#form-validation").validate({
+            ignore: ':hidden:not(:checkbox)',
+            errorElement: 'label',
+            errorClass: 'is-invalid',
+            validClass: 'is-valid',
+        });
+    </script>
+}
