@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Shopping.Models
+namespace Shopping.Models;
+
+public partial class Shipper
 {
-    public partial class Shipper
-    {
-        public int ShipperId { get; set; }
-        public string? ShipperName { get; set; }
-        public string? Phone { get; set; }
-        public string? Company { get; set; }
-        public DateTime? ShipDate { get; set; }
-    }
+    public int ShipperId { get; set; }
+
+    public string? ShipperName { get; set; }
+
+    public string? Phone { get; set; }
+
+    public string? Company { get; set; }
+
+    public DateTime? ShipDate { get; set; }
 }

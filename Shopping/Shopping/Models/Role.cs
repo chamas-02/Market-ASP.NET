@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Shopping.Models
+namespace Shopping.Models;
+
+public partial class Role
 {
-    public partial class Role
-    {
-        public Role()
-        {
-            Accounts = new HashSet<Account>();
-        }
+    public int RoleId { get; set; }
 
-        public int RoleId { get; set; }
-        public string? RoleName { get; set; }
-        public string? Description { get; set; }
+    public string? RoleName { get; set; }
 
-        public virtual ICollection<Account> Accounts { get; set; }
-    }
+    public string? Description { get; set; }
+
+    public virtual ICollection<Account> Accounts { get; } = new List<Account>();
 }
