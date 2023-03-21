@@ -22,19 +22,32 @@
             <!-- ============ PHÂN LOẠI ============ -->
             <div class="col-lg-8">
                 <div class="d-md-flex">
+                    <!-- Category -->
                     <div class="m-b-10 m-r-15">
                         <select class="custom-select" id="txtCatID" name="txtCatID" style="min-width: 180px;" asp-items="ViewBag.DanhMuc">
                             <option value="" disabled selected>Catergory</option>
                             <option value="0">All</option>
                         </select>
                     </div>
+
+                    <!-- chưa phân loại status -->
                     <div class="m-b-10">
-                        <select class="custom-select" id="idstatus" name="idstatus" style="min-width: 180px;" asp-items="ViewBag.lsTrangThai">
+                        <select class="custom-select" id="txtStatus" name="txtStatus" style="min-width: 180px;" asp-items="ViewBag.lsTrangThai">
                             <option value="" disabled selected>Status</option>
+                            <option value="0">All</option>
                         </select>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="col-md-5">
+                        <div class="input-affix ">
+                            <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                            <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" maxlength="45">
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- ============ ADD PRODUCT BUTTON ============ -->
             <div class="col-lg-4 text-right">
                 <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">
@@ -57,7 +70,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="records_table">
                     @if(Model != null) 
                     {
                         foreach (var item in Model)

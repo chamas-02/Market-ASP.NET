@@ -233,6 +233,10 @@
       "PackagePath": "staticwebassets\\Adminassets\\images\\avatars\\thumb-9.jpg"
     },
     {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\Adminassets\\images\\default.jpg",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\default.jpg"
+    },
+    {
       "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\Adminassets\\images\\logo\\favicon.png",
       "PackagePath": "staticwebassets\\Adminassets\\images\\logo\\favicon.png"
     },
@@ -4697,8 +4701,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\thanh-gao-lut-hat-ngu-coc.png",
-      "PackagePath": "staticwebassets\\images\\products\\thanh-gao-lut-hat-ngu-coc.png"
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\category\\cham-soc-nha-cua.png",
+      "PackagePath": "staticwebassets\\images\\category\\cham-soc-nha-cua.png"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\category\\do-an-vat.png",
+      "PackagePath": "staticwebassets\\images\\category\\do-an-vat.png"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\banh-an-sang-cest-bon-cream-egg.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\banh-an-sang-cest-bon-cream-egg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\banh-an-sang-cest-bon-cream-eggs.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\banh-an-sang-cest-bon-cream-eggs.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\images\\products\\nuoc-giat-omo-matic-chuyen-dung-cua-truoc-lavender-khu-mui-thu-thai-36kg.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\nuoc-giat-omo-matic-chuyen-dung-cua-truoc-lavender-khu-mui-thu-thai-36kg.jpg"
     },
     {
       "Id": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\wwwroot\\js\\site.js",

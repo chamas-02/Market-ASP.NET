@@ -1,0 +1,133 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Shopping.Models.Category>
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sách danh mục sản phẩm" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- Content Wrapper START -->
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Danh sách danh mục : page @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+        <!-- ============ PHÂN LOẠI ============ -->
+        <div class="col-lg-8">
+            <div class="d-md-flex">
+                <!-- chưa phân loại status -->
+                <div class="m-b-10">
+                    <select class="custom-select" id="txtStatus" name="txtStatus" style="min-width: 180px;" asp-items="ViewBag.lsTrangThai">
+                        <option value="" disabled selected>Status</option>
+                        <option value="0">All</option>
+                    </select>
+                </div>
+
+                <!-- Search -->
+                <div class="col-md-5">
+                    <div class="input-affix ">
+                        <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                        <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Tìm kiếm danh mục">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ ADD PRODUCT BUTTON ============ -->
+        <div class="col-lg-4 text-right">
+            <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminCategories" asp-action="Create">
+                <i class="anticon anticon-plus-circle m-r-5"></i>
+                <span>Add Category</span>
+            </a>
+        </div>
+        </div>
+    
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên danh mục</th>
+                        <th>Sắp xếp</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            <tbody id="records_table">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        string url = $"/{item.Alias}";
+                        <tr>
+                            <td>@item.CatId</td>
+                            <td>
+                                <a target="_blank" href="@url">@item.CatName</a>
+                            </td>
+                            <td>@item.Ordering</td>
+                            <td>
+                                @if (item.Published == true)
+                                {
+
+
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>Public</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>Non-Public</div>
+                                    </div>
+                                }
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCategories" asp-action="Details" asp-route-id="@item.CatId">View</a>
+                                <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCategories" asp-action="Edit" asp-route-id="@item.CatId">Edit</a>
+                                <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCategories" asp-action="Delete" asp-route-id="@item.CatId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminCategories" asp-action="Index" />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content Wrapper END -->
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
+                $.ajax({
+                    url: '/Admin/Search/FindCategory/',
+                    datatype: "json",
+                    type: "POST",
+                    data: { keyword: strkeyword },
+                    async: true,
+                    success: function (results) {
+                        $("#records_table").html("");
+                        $("#records_table").html(results);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
+}

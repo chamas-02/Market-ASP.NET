@@ -7,7 +7,7 @@
     <title>@ViewData["Title"]</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="~/lib/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Adminassets/images/logo/favicon.png">
 
     <!-- page css -->
     <link href="~/Adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
             <!-- Header START -->
             <div class="header">
                 <div class="logo logo-dark">
-                    <a href="index.html">
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">
                         <img src="~/Adminassets/images/logo/logo.png" alt="Logo">
                         <img class="logo-fold" src="~/Adminassets/images/logo/logo-fold.png" alt="Logo">
                     </a>
@@ -377,6 +377,7 @@
     <!-- page js -->
     <script src="~/Adminassets/vendors/chartjs/Chart.min.js"></script>
     <script src="~/Adminassets/js/pages/dashboard-e-commerce.js"></script>
+    <script src="~/Adminassets/vendors/jquery-validation/jquery.validate.min.js"></script>
 
     <!-- Core JS -->
     <script src="~/Adminassets/js/app.min.js"></script>

@@ -3,9 +3,9 @@
         <ul class="side-nav-menu scrollable">
             <!-- ======== DASHBOARD ======== -->
             <li class="nav-item dropdown open">
-                <a class="dropdown-toggle" href="javascript:void(0);">
+                <a class="dropdown-toggle" asp-area="Admin" asp-controller="Home" asp-action="Index">
                     <span class="icon-holder">
-                        <i class="anticon anticon-dashboard"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                     </span>
                     <span class="title">Dashboard</span>
                 </a>    
@@ -15,7 +15,7 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-appstore"></i>
+                        <i class="fas fa-table"></i>
                     </span>
                     <span class="title">Quản lý sản phẩm</span>
                     <span class="arrow">
@@ -39,7 +39,7 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-build"></i>
+                        <i class="fas fa-users"></i>
                     </span>
                     <span class="title">Quản lý khách hàng</span>
                     <span class="arrow">
@@ -63,7 +63,7 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-hdd"></i>
+                        <i class="fab fa-microsoft"></i>
                     </span>
                     <span class="title">Quản lý đơn hàng</span>
                     <span class="arrow">
@@ -105,7 +105,7 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-form"></i>
+                        <i class="fas fa-money-check-alt"></i>
                     </span>
                     <span class="title">Doanh số</span>
                     <span class="arrow">
@@ -129,7 +129,7 @@
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-table"></i>
+                        <i class="fas fa-server"></i>
                     </span>
                     <span class="title">Quản lý hệ thống</span>
                     <span class="arrow">
@@ -141,7 +141,7 @@
                         <a asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">Quản lý tài khoản</a>
                     </li>
                     <li>
-                        <a href="data-table.html">Quản lý danh mục</a>
+                        <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index">Quản lý danh mục</a>
                     </li>
                     <li>
                         <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
@@ -154,48 +154,29 @@
 
             <!-- ======== PAGES ======== -->
             <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
+                <a class="dropdown-toggle" asp-area="Admin" asp-controller="AdminPages" asp-action="Index">
                     <span class="icon-holder">
-                        <i class="anticon anticon-file"></i>
+                        <i class="fas fa-file-alt"></i>
                     </span>
                     <span class="title">Quản lý Pages</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
                 </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a asp-area="Admin" asp-controller="AdminPages" asp-action="Index">Danh sách Pages</a>
-                    </li>
-                    <li>
-                        <a href="#">Coming soon</a>
-                    </li>
-                </ul>
             </li>
 
-            <!-- ======== NEWS - CHƯA LÀM ======== -->
+            <!-- ======== NEWS ======== -->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-pie-chart"></i>
+                        <i class="fas fa-newspaper"></i>
                     </span>
                     <span class="title">Quản lý tin tức</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
                 </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="#">Phát triển sau</a>
-                    </li>
-                </ul>
             </li>
 
             <!-- ======== SHIPPER - CHƯA LÀM ======== -->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
-                        <i class="anticon anticon-lock"></i>
+                        <i class="fas fa-shipping-fast"></i>
                     </span>
                     <span class="title">Quản lý shipper</span>
                     <span class="arrow">

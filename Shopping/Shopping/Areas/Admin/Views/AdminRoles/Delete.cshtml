@@ -1,20 +1,19 @@
 ﻿@model Shopping.Models.Role
 
 @{
-    ViewData["Title"] = "Xác nhận xóa quyền truy cập";
+    ViewData["Title"] = Model.RoleName + " - " + " Xóa quyền truy cập";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="page-header">
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
-            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Access list</a>
-            <span class="breadcrumb-item active">Delete "@Model.RoleName"</span>
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" class="breadcrumb-item">Danh sách quyền truy cập</a>
+            <span class="breadcrumb-item active">Thông tin quyền : @Model.RoleName</span>
         </nav>
     </div>
 </div>
-
-<h3>Are you sure you want to delete this?</h3>
 
 <div class="card">
     <div class="card-body">
@@ -42,6 +41,6 @@
 <div>
     <form asp-action="Delete" asp-route-id="@Model.RoleId">
         <button class="btn btn-danger btn-tone m-r-5" type="submit">Delete</button>
-        <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" role="button">Back to List</a>
+        <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" role="button">Cancel</a>
     </form>
 </div>

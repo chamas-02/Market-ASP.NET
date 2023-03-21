@@ -1,19 +1,20 @@
 ﻿@model Shopping.Models.Role
 @{
-    ViewData["Title"] = "Thông tin quyền truy cập";
+    ViewData["Title"] = Model.RoleName + " " + "- Thông tin quyền truy cập";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="page-header">
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
-            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Access list</a>
-            <span class="breadcrumb-item active">Information</span>
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index" class="breadcrumb-item">Danh sách quyền truy cập</a>
+            <span class="breadcrumb-item active">Thông tin quyền : @Model.RoleName</span>
         </nav>
     </div>
 </div>
-<h3>Thông tin quyền truy cập</h3>
+
+
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Basic info</h4>
