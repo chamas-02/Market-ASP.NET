@@ -5,7 +5,8 @@
 
 <!-- Begin Main Content Area -->
 <main class="main-content">
-    <div class="breadcrumb-area breadcrumb-height" data-bg-image="~/assets/images/breadcrumb/bg/1-1-1920x373.jpg">
+    <!-- ========== TITLE ========== -->
+    <div class="breadcrumb-area breadcrumb-height" data-bg-image="/assets/images/banner/1-1-1920x373.jpg">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-lg-12">
@@ -13,7 +14,7 @@
                         <h2 class="breadcrumb-heading">About Us</h2>
                         <ul>
                             <li>
-                                <a href="index.html">Home <i class="pe-7s-angle-right"></i></a>
+                                <a asp-controller="Home" asp-action="Index">Home <i class="pe-7s-angle-right"></i></a>
                             </li>
                             <li>About Us</li>
                         </ul>
@@ -22,7 +23,9 @@
             </div>
         </div>
     </div>
-    <div class="about-banner different-bg-position section-space-y-axis-100" data-bg-image="~/assets/images/about/banner/1-1-1920x598.jpg">
+
+    <!-- ========== PRODUCT ========== -->
+    <div class="about-banner different-bg-position section-space-y-axis-100" data-bg-image="/assets/images/banner/1-1-1920x598.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-5">
@@ -30,7 +33,7 @@
                         <div class="papaya">
                             <div class="scene fill">
                                 <div class="expand-width" data-depth="0.2">
-                                    <img src="~/assets/images/banner/inner-img/2-1-503x430.png" alt="Banner Images">
+                                    <img src="~/assets/images/banner/2-1-503x430.png" alt="Banner Images">
                                 </div>
                             </div>
                         </div>
@@ -39,11 +42,11 @@
                 <div class="col-xl-6 col-lg-7 align-self-center">
                     <div class="about-banner-content">
                         <div class="section-title">
-                            <span class="sub-title">Welcome To Harmic</span>
+                            <span class="sub-title">Welcome To BigC</span>
                             <h2 class="title font-size-60 mb-6">Best Organic Shop</h2>
-                            <p class="short-desc mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimd veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                            <p class="short-desc mb-0">The store selling organic products is a haven for health-conscious consumers who prioritize the quality and safety of the food they eat. All products sold in this store are grown without the use of harmful chemicals or synthetic fertilizers, which means that they are free from harmful toxins and pesticides.  </p>
                             <div class="button-wrap pt-8">
-                                <a class="btn btn-custom-size lg-size btn-primary btn-dark-hover rounded-0" href="shop.html">Shop Now</a>
+                                <a class="btn btn-custom-size lg-size btn-primary btn-dark-hover rounded-0" href="#">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -90,9 +93,9 @@
             </div>
         </div>
     </div>
-    <div class="about-banner about-banner-height" data-bg-image="~/assets/images/about/banner/2-1-1920x500.jpg">
+    <div class="about-banner about-banner-height" style="background-image:url(https://htmldemo.net/harmic/harmic/assets/images/about/banner/2-1-1920x500.jpg)">
         <div class="popup-btn">
-            <a class="popup-vimeo wave-btn" href="https://player.vimeo.com/video/172601404?autoplay=1">
+            <a class="popup-vimeo wave-btn" href="#">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -102,6 +105,8 @@
             </a>
         </div>
     </div>
+
+    <!-- ========================================= MY TEAM ========================================= -->
     <div class="team-member section-space-top-100">
         <div class="container">
             <div class="section-title text-center pb-55">
@@ -116,32 +121,32 @@
                                 <div class="team-member-item">
                                     <div class="team-member-img img-zoom-effect with-overlay">
                                         <a href="javascript:void(0)">
-                                            <img class="img-full" src="~/assets/images/about/team/1-1-370x350.jpg" alt="Team Member">
+                                            <img class="img-full" src="https://i.imgur.com/HgCjMI5.gif" alt="Team Member">
                                         </a>
                                     </div>
                                     <div class="team-member-content text-black pt-5">
-                                        <h6 class="title mb-0">Nicole Williams</h6>
-                                        <span class="occupation">Director</span>
+                                        <h6 class="title mb-0">__chambao__</h6>
+                                        <span class="occupation">Chấm Bảo</span>
                                         <div class="social-link with-border justify-content-center pt-2">
                                             <ul>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-pinterest-p"></i>
+                                                        <i class="fa fa-instagram"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-twitter"></i>
+                                                        <i class="fa fa-github"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-tumblr"></i>
+                                                        <i class="fa fa-linkedin"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-dribbble"></i>
+                                                        <i class="fa fa-bars"></i>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -153,32 +158,32 @@
                                 <div class="team-member-item">
                                     <div class="team-member-img img-zoom-effect with-overlay">
                                         <a href="javascript:void(0)">
-                                            <img class="img-full" src="~/assets/images/about/team/1-2-370x350.jpg" alt="Team Member">
+                                            <img class="img-full" src="https://i.pinimg.com/originals/cc/da/1e/ccda1ef122356d4e7e9c461559090d6c.gif" alt="Team Member">
                                         </a>
                                     </div>
                                     <div class="team-member-content text-black pt-5">
-                                        <h6 class="title mb-0">Nicole Williams</h6>
-                                        <span class="occupation">Director</span>
+                                        <h6 class="title mb-0">xianchenw</h6>
+                                        <span class="occupation">Panda 🐼</span>
                                         <div class="social-link with-border justify-content-center pt-2">
                                             <ul>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-pinterest-p"></i>
+                                                        <i class="fa fa-instagram"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-twitter"></i>
+                                                        <i class="fa fa-github"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-tumblr"></i>
+                                                        <i class="fa fa-linkedin"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-dribbble"></i>
+                                                        <i class="fa fa-bars"></i>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -190,32 +195,32 @@
                                 <div class="team-member-item">
                                     <div class="team-member-img img-zoom-effect with-overlay">
                                         <a href="javascript:void(0)">
-                                            <img class="img-full" src="~/assets/images/about/team/1-3-370x350.jpg" alt="Team Member">
+                                            <img class="img-full" src="https://i.pinimg.com/originals/85/be/94/85be94350b6cefd78140c8c8232c75e5.gif" alt="Team Member">
                                         </a>
                                     </div>
                                     <div class="team-member-content text-black pt-5">
-                                        <h6 class="title mb-0">Nicole Williams</h6>
-                                        <span class="occupation">Director</span>
+                                        <h6 class="title mb-0">_iam.trviii</h6>
+                                        <span class="occupation">Triệu Vi</span>
                                         <div class="social-link with-border justify-content-center pt-2">
                                             <ul>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-pinterest-p"></i>
+                                                        <i class="fa fa-instagram"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-twitter"></i>
+                                                        <i class="fa fa-github"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-tumblr"></i>
+                                                        <i class="fa fa-linkedin"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">
-                                                        <i class="fa fa-dribbble"></i>
+                                                        <i class="fa fa-bars"></i>
                                                     </a>
                                                 </li>
                                             </ul>
