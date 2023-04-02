@@ -62,19 +62,19 @@
                         foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.CustomerId</td>
+                                <td>@item.CustomerID</td>
                                 <td>@item.FullName</td>
                                 <td>@item.Phone</td>
                                 <td>@item.Email</td>
                                 <td>
                                     <p>@item.Address</p>
-                                    <p>@item.Location.Name</p>
+                                    @*<p>@item.Location.Name</p>*@
 
                                 </td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Details" asp-route-id="@item.CustomerId">View</a>
-                                    <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a>
-                                    <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Details" asp-route-id="@item.CustomerID">View</a>
+                                    <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Edit" asp-route-id="@item.CustomerID">Edit</a>
+                                    <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Delete" asp-route-id="@item.CustomerID">Delete</a>
                                 </td>
                             </tr>
                         }
