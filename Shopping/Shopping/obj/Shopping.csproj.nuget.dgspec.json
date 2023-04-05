@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Shopping\\Shopping\\Shopping.csproj": {}
+    "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\Shopping.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Shopping\\Shopping\\Shopping.csproj": {
+    "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\Shopping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Shopping\\Shopping\\Shopping.csproj",
+        "projectUniqueName": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\Shopping.csproj",
         "projectName": "Shopping",
-        "projectPath": "D:\\Study\\Shopping\\Shopping\\Shopping.csproj",
-        "packagesPath": "C:\\Users\\thuhi\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Shopping\\Shopping\\obj\\",
+        "projectPath": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\Shopping.csproj",
+        "packagesPath": "C:\\Users\\ChamBao\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ChamBao\\source\\repos\\Shopping\\Shopping\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\thuhi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ChamBao\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

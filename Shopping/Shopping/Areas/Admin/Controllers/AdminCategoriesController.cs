@@ -127,8 +127,7 @@ namespace Shopping.Areas.Admin.Controllers
                         category.Thumb = await Utilities.UploadFile(fThumb, @"category", imageName.ToLower());
                     }
                     if (string.IsNullOrEmpty(category.Thumb)) category.Thumb = "default.jpg";
-                    category.Alias = Utilities.SEOUrl(category.CatName);
-
+                    
                     _context.Update(category);
                     await _context.SaveChangesAsync();
                     _notifyService.Success("Cập nhật thành công");

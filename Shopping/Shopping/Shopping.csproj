@@ -29,15 +29,9 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Accounts\DangkyTaiKhoan.cshtml" />
-    <None Include="Views\Accounts\Dashboard.cshtml" />
-    <None Include="Views\Accounts\Login.cshtml" />
-    <None Include="Views\Accounts\_ChangePasswordPartialView.cshtml" />
-    <None Include="Views\Accounts\_DonhangPartialView.cshtml" />
     <None Include="wwwroot\Adminassets\summernote\font\summernote.woff2" />
     <None Include="wwwroot\Adminassets\summernote\lang\summernote-ar-AR.js" />
     <None Include="wwwroot\Adminassets\summernote\lang\summernote-ar-AR.min.js" />
