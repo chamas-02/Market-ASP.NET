@@ -29,7 +29,7 @@ namespace Shopping.Areas.Admin.Controllers
             var lsCustomers = _context.Customers
                 .AsNoTracking()
                 .Include(x=>x.Location)
-                .OrderByDescending(x => x.CustomerId);
+                .OrderByDescending(x => x.CustomerID);
             PagedList<Customer> models = new PagedList<Customer>(lsCustomers, pageNumber, pageSize) ;
             ViewBag.CurrentPage = pageNumber;
             return View(models);
@@ -46,7 +46,7 @@ namespace Shopping.Areas.Admin.Controllers
             }
 
             var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.CustomerID == id);
             if (customer == null)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ namespace Shopping.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,FullName,Birthday,Avatar,Address,Email,Phone,LocationId,District,Ward,CreateDate,Password,Salt,LastLogin,Active")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerID,FullName,Birthday,Avatar,Address,Email,Phone,LocationId,District,Ward,CreateDate,Password,Salt,LastLogin,Active")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -98,9 +98,9 @@ namespace Shopping.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,FullName,Birthday,Avatar,Address,Email,Phone,LocationId,District,Ward,CreateDate,Password,Salt,LastLogin,Active")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,FullName,Birthday,Avatar,Address,Email,Phone,LocationId,District,Ward,CreateDate,Password,Salt,LastLogin,Active")] Customer customer)
         {
-            if (id != customer.CustomerId)
+            if (id != customer.CustomerID)
             {
                 return NotFound();
             }
@@ -114,7 +114,7 @@ namespace Shopping.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.CustomerId))
+                    if (!CustomerExists(customer.CustomerID))
                     {
                         return NotFound();
                     }
@@ -137,7 +137,7 @@ namespace Shopping.Areas.Admin.Controllers
             }
 
             var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.CustomerID == id);
             if (customer == null)
             {
                 return NotFound();
@@ -167,7 +167,7 @@ namespace Shopping.Areas.Admin.Controllers
 
         private bool CustomerExists(int id)
         {
-          return _context.Customers.Any(e => e.CustomerId == id);
+          return _context.Customers.Any(e => e.CustomerID == id);
         }
     }
 }
