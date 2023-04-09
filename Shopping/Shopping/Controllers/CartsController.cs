@@ -13,6 +13,9 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using PagedList.Core;
+using AspNetCoreHero.ToastNotification.Helpers;
+using System.Text.Json;
 
 namespace Shopping.Controllers
 {
@@ -34,6 +37,20 @@ namespace Shopping.Controllers
             [Required]
             public int quantity { get; set; }
 
+        }
+
+        [Route("/Carts", Name = ("Cart"))]
+        public IActionResult Index()
+        {
+            var accountID = HttpContext.Session.GetString("CustomerID");
+
+            var lsCartDetail = _context.Carts.AsNoTracking()
+                .Where(c => c.CustomerID == Int32.Parse(accountID))
+                .OrderByDescending(c => c.UpdatedDate)
+                .Include(c => c.Product)
+                .ToList();
+
+            return View(lsCartDetail);
         }
 
         [HttpGet]
@@ -88,6 +105,32 @@ namespace Shopping.Controllers
                 Console.WriteLine(ex.ToString());
                 return NotFound(cartdetail);
             }
+        }
+
+        [HttpGet]
+        [Route("/miniCart", Name = ("miniCart"))]
+        [AllowAnonymous]
+        public async Task<IActionResult> MiniCart()
+        {
+            var accountID = HttpContext.Session.GetString("CustomerID");
+            if (accountID != null)
+            {
+                var lsCartDetail = _context.Carts.AsNoTracking()
+                    .Where(c => c.CustomerID == Int32.Parse(accountID))
+                    .OrderByDescending(c => c.UpdatedDate)
+                    .Include(c => c.Product)
+                    .ToArray();
+
+                JsonSerializerSettings settings = new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                };
+
+                var data = JsonConvert.SerializeObject(lsCartDetail, Formatting.Indented, settings);
+
+                return Ok(data);
+            }
+            return NotFound(new { message = "Không tìm thấy sản phẩm" });
         }
     }
 }

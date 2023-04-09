@@ -30,3 +30,36 @@ function showNotification(message, duration) {
         notification.style.display = "none";
     }, duration);
 }
+async function getMiniCartDetail() {
+    fetch('/miniCart', {
+        method: "get",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        console.log(res)
+        if (res.status == 200) {
+            return res.json();
+        }
+    }).then(data => {
+        let miniCartList = document.getElementById("miniCart").querySelector(".minicart-list");
+        miniCartList.innerHTML = ``;
+        for (var i in data) {
+            var item = data[i];
+            miniCartList.innerHTML = miniCartList.innerHTML + `
+            <li class="minicart-product">
+                <a class="product-item_remove" href="#">
+                    <i class="pe-7s-close"></i>
+                </a>
+                <a href="shop.html" class="product-item_img">
+                    <img class="img-full" src="images/products/${item.Product.Thumb}" alt="${item.Product.Thumb}">
+                </a>
+                <div class="product-item_content">
+                    <a class="product-item_title" href="shop.html">${item.Product.ProductName}</a>
+                    <span class="product-item_quantity">${item.Quantity} x ${item.Product.Price}</span>
+                </div>
+            </li>
+            `
+        }
+    })
+}
