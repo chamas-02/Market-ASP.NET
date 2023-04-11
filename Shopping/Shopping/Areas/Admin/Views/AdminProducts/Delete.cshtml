@@ -1,0 +1,203 @@
+﻿@model Shopping.Models.Product
+
+@{
+    ViewData["Title"] = Model.ProductName + " " + "- Thông tin sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <div class="page-header no-gutters has-tab">
+        <!-- ========== NAME ========== -->
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                    <img src="~/images/products/@Model.Thumb" alt="@Model.Title">
+                </div>
+                <div class="m-l-15">
+                    <h4 class="m-b-0">@Model.ProductName</h4>
+                    <p class="text-muted m-b-0">Code: @Model.ProductId</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TABS ========== -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-overview">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#product-images">Product Images</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container-fluid">
+        <div class="tab-content m-t-15">
+            <div class="tab-pane fade show active" id="product-overview">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Basic Info</h4>
+                        <div class="table-responsive">
+                            <table class="product-info-table m-t-20">
+                                <tbody>
+                                    <tr>
+                                        <td>Category:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.Cat.CatName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.Price</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Discount:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.Discount</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stock:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.UnitsInStock</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Active:</td>
+                                        <td>
+                                            @if (Model.Active)
+                                            {
+                                                <div class="switch m-r-10">
+                                                    <input type="checkbox" id="switch-1" checked="" disabled />
+                                                    <label for="switch-1"></label>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="switch m-r-10">
+                                                    <input type="checkbox" id="switch-1" disabled />
+                                                    <label for="switch-1"></label>
+                                                </div>
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bestseller:</td>
+                                        <td>
+                                            @if (Model.BestSellers)
+                                            {
+                                                <div class="switch m-r-10">
+                                                    <input type="checkbox" id="switch-1" checked="" disabled />
+                                                    <label for="switch-1"></label>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="switch m-r-10">
+                                                    <input type="checkbox" id="switch-1" disabled />
+                                                    <label for="switch-1"></label>
+                                                </div>
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>HomeFlag:</td>
+                                        <td>
+                                            @if (Model.HomeFlag)
+                                            {
+                                                <div class="switch m-r-10">
+                                                    <input type="checkbox" id="switch-1" checked="" disabled />
+                                                    <label for="switch-1"></label>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="switch m-r-10">
+                                                    <input type="checkbox" id="switch-1" disabled />
+                                                    <label for="switch-1"></label>
+                                                </div>
+                                            }
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Option Info</h4>
+                        <div class="table-responsive">
+                            <table class="product-info-table m-t-20">
+                                <tbody>
+                                    <tr>
+                                        <td>Ngày tạo:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.DateCreated</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ngày chỉnh sửa:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.DateModified</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tiêu đề:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.Title</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MetaKey:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.MetaKey</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MetaDesc:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.MetaDesc</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tags:</td>
+                                        <td class="text-dark font-weight-semibold">@Model.Tags</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Short Description:</h4>
+                    </div>
+                    <div class="card-body">
+                        @Html.Raw(Model.ShortDesc)
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Description:</h4>
+                    </div>
+                    <div class="card-body">
+                        @Html.Raw(Model.Description)
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="product-images">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="img-fluid" src="~/images/products/@Model.Thumb" alt="@Model.Title">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" src="assets/images/others/product-2.jpg" alt="">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" src="assets/images/others/product-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Delete" asp-route-id="@Model.ProductId">
+        <input type="hidden" asp-for="ProductId" />
+        <button class="btn btn-danger btn-tone m-r-5" type="submit">Delete</button>
+        <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" role="button">Cancel</a>
+    </form>
+</div>

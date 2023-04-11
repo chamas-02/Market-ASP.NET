@@ -1,0 +1,349 @@
+﻿@{
+    var headerModel = ViewBag.HeaderModel;
+}
+<header class="main-header_area position-relative">
+    <div class="header-middle py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="header-middle-wrap">
+                        <!-- ========== LOGO ========== -->
+                        <a asp-controller="Home" asp-action="Index" class="header-logo">
+                            <img src="~/assets/images/logo/dark.png" alt="Header Logo">
+                        </a>
+
+                        <!-- ========== SEARCH ========== -->
+                        <div class="header-search-area d-none d-lg-block">
+                            <form action="#" class="header-searchbox">                               
+                                <input class="input-field" type="text" placeholder="Search Products">
+                                <button class="btn btn-outline-whisper btn-primary-hover" type="submit"><i class="pe-7s-search"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- ========== LOGIN/REGISTER ========== -->
+                        <div class="header-right">
+                            <ul>
+                                <li class="dropdown d-none d-md-block">
+                                    <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="pe-7s-users"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">My Account</a></li>
+                                            <li><a class="dropdown-item" href="dang-xuat.html">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a class="dropdown-item" href="/dang-ky.html">Sign Up</a></li>
+                                            <li><a class="dropdown-item" asp-action="Login" asp-controller="Accounts">Sign In</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li class="d-none d-md-block">
+                                    <a href="wishlist.html">
+                                        <i class="pe-7s-like"></i>
+                                    </a>
+                                </li>
+                                <li class="d-block d-lg-none">
+                                    <a href="#searchBar" class="search-btn toolbar-btn">
+                                        <i class="pe-7s-search"></i>
+                                    </a>
+                                </li>
+                                <li class="minicart-wrap me-3 me-lg-0">
+                                    <a onclick="getMiniCartDetail()" href="#miniCart" class="minicart-btn toolbar-btn">
+                                        <i class="pe-7s-shopbag"></i>
+                                        <span class="quantity">3</span>
+                                    </a>
+                                </li>
+                                <li class="mobile-menu_wrap d-block d-lg-none">
+                                    <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">
+                                        <i class="pe-7s-menu"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-header header-sticky" data-bg-color="#bac34e">
+        <div class="container">
+            <div class="main-header_nav position-relative">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 d-none d-lg-block">
+                        <div class="main-menu">
+                            <nav class="main-nav">
+                                <ul>
+                                    <!-- ========== HOME ========== -->
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Index">Home</a>
+                                    </li>
+
+                                    <!-- ========== ABOUT ========== -->
+                                    <li>
+                                        <a asp-controller="Home" asp-action="About">About</a>
+                                    </li>
+
+                                    <!-- ========== PRODUCT ========== -->
+                                    <li class="drop-holder">                                         
+                                        <a asp-controller="Product" asp-action="Index"> 
+                                            Product
+                                            <i class="fa fa-chevron-down"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- ========== PAGES ========== -->
+                                    <li class="drop-holder">
+                                        <a href="javascript:void(0)">
+                                            Pages
+                                            <i class="fa fa-chevron-down"></i>
+                                        </a>
+                                        <ul class="drop-menu">
+                                            <li>
+                                                <a asp-controller="Home" asp-action="About">Giới thiệu</a>
+                                            </li>
+                                            <li>
+                                                <a href="404.html">Chính sách đổi trả</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- ========== BLOG ========== -->
+                                    <li>                                                                        
+                                        <a asp-controller="Blog" asp-action="Index">Blog</a>
+                                    </li>
+
+                                    <!-- ========== CONTACTS ========== -->
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu_wrapper" id="mobileMenu">
+        <div class="harmic-offcanvas-body">
+            <div class="inner-body">
+                <div class="harmic-offcanvas-top">
+                    <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+                </div>
+                <div class="offcanvas-menu_area">
+                    <nav class="offcanvas-navigation">
+                        <ul class="mobile-menu">
+                            <!-- ========== HOME ========== -->
+                            <li class="menu-item-has-children">
+                                <a asp-controller="Home" asp-action="Index">
+                                    <span class="mm-text"> Home </span>
+                                </a>
+                            </li>
+
+                            <!-- ========== ABOUT US ========== -->
+                            <li>
+                                <a asp-controller="Home" asp-action="About">
+                                    <span class="mm-text"> About Us </span>
+                                </a>
+                            </li>
+
+                            <!-- ========== SHOP ========== -->
+                            <li class="menu-item-has-children">
+                                <a href="#">
+                                    <span class="mm-text">
+                                        Shop
+                                        <i class="pe-7s-angle-down"></i>
+                                    </span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item-has-children">
+                                        <a href="#">
+                                            <span class="mm-text">
+                                                Shop Layout
+                                                <i class="pe-7s-angle-down"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="shop.html">
+                                                    <span class="mm-text">Shop Default</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-leftsidebar.html">
+                                                    <span class="mm-text">Shop Left Sidebar</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-rightsidebar.html">
+                                                    <span class="mm-text">Shop Right Sidebar</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list-fullwidth.html">
+                                                    <span class="mm-text">Shop List Fullwidth</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list-left-sidebar.html">
+                                                    <span class="mm-text">Shop List Left Sidebar</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list-right-sidebar.html">
+                                                    <span class="mm-text">Shop List Right Sidebar</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">
+                                            <span class="mm-text">
+                                                Product Style
+                                                <i class="pe-7s-angle-down"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="single-product.html">
+                                                    <span class="mm-text">Single Product Default</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-group.html">
+                                                    <span class="mm-text">Single Product Group</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-variable.html">
+                                                    <span class="mm-text">Single Product Variable</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-sale.html">
+                                                    <span class="mm-text">Single Product Sale</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-sticky.html">
+                                                    <span class="mm-text">Single Product Sticky</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-affiliate.html">
+                                                    <span class="mm-text">Single Product Affiliate</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">
+                                            <span class="mm-text">
+                                                Product Related
+                                                <i class="pe-7s-angle-down"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">My Account</a></li>
+                                                <li><a class="dropdown-item" href="dang-xuat.html">Log Out</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a class="dropdown-item" href="/dang-ky.html">Sign Up</a></li>
+                                                <li><a class="dropdown-item" href="/dang-nhap.html">Sign In</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- ========== PAGES ========== -->
+                            <li class="menu-item-has-children">
+                                <a href="#">
+                                    <span class="mm-text">
+                                        Pages
+                                        <i class="pe-7s-angle-down"></i>
+                                    </span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="faq.html">
+                                            <span class="mm-text">Frequently Questions</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="404.html">
+                                            <span class="mm-text">Error 404</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- ========== BLOG ========== -->
+                            <li class="menu-item-has-children">
+                                <a asp-controller="Blog" asp-action="Index">
+                                    <span class="mm-text"> Blog </span>
+                                </a>
+                            </li>
+
+                            <!-- ========== CONTACT ========== -->
+                            <li>
+                                <a asp-controller="Home" asp-action="Contact">
+                                    <span class="mm-text">Contact</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SEARCH BAR ========== -->
+    <div class="offcanvas-search_wrapper" id="searchBar">
+        <div class="harmic-offcanvas-body">
+            <div class="container h-100">
+                <div class="offcanvas-search">
+                    <div class="harmic-offcanvas-top">
+                        <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+                    </div>
+                    <span class="searchbox-info">Start typing and press Enter to search</span>
+                    <form action="#" class="hm-searchbox">
+                        <input type="text" placeholder="Search">
+                        <button class="search-btn" type="submit"><i class="pe-7s-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MINICART ========== -->
+    <div class="offcanvas-minicart_wrapper" id="miniCart">
+        <div class="harmic-offcanvas-body">
+            <div class="minicart-content">
+                <div class="minicart-heading">
+                    <h4 class="mb-0">Shopping Cart</h4>
+                    <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+                </div>
+                <ul class="minicart-list">
+                </ul>
+            </div>
+            <div class="group-btn_wrap d-grid gap-2">
+                <a asp-action="Index" asp-controller="Carts" class="btn btn-secondary btn-primary-hover">View Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="global-overlay"></div>
+
+    <!-- Notification -->
+    <div id="notification" style="display: none; position: fixed; top: 80px; right: 20px; width: 40%; background-color: darkseagreen;  color: white ;text-align: center; padding: 20px; font-size: 20px;">
+    </div>
+</header>
