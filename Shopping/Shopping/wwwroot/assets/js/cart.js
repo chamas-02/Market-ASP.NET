@@ -1,5 +1,4 @@
 ﻿async function addToCart(productId, quantity) {
-    console.log(productId, quantity)
     fetch('/addToCart', {
         method: "post",
         body: JSON.stringify({
@@ -19,7 +18,6 @@
         }
     }).then(data => {
         showNotification(data["message"], 3000);
-        console.log(data);
     })
 }
 function showNotification(message, duration) {
@@ -37,9 +35,11 @@ async function getMiniCartDetail() {
             'Content-Type': 'application/json'
         }
     }).then(res => {
-        console.log(res)
         if (res.status == 200) {
             return res.json();
+        }
+        else {
+            document.getElementById("miniCart").querySelector(".minicart-content").innerHTML = `<i>Không tìm thấy sản phẩm</i>`;
         }
     }).then(data => {
         let miniCartList = document.getElementById("miniCart").querySelector(".minicart-list");
@@ -63,3 +63,73 @@ async function getMiniCartDetail() {
         }
     })
 }
+async function removeFromCart(cartId) {
+    fetch(`/removeFromCart/${cartId}`, {
+        method: "get",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        return res.json()
+    }).then(data => {
+        let cartItem = "cart-item-" + cartId;
+        document.getElementById(cartItem).remove();
+        loadCartTotal();
+    })
+}
+async function updateCartQuantity(cartId, quantity) {
+    fetch(`/updateCartQuantity/${cartId}/${quantity}`, {
+        method: "get",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        return res.json();
+    }).then(data => {
+        let cartItem = "cart-item-" + cartId;
+        let row = document.getElementById(cartItem);
+        row.cells[5].querySelector('span').innerText = parseInt(row.cells[3].querySelector('span').innerText) * quantity;
+        loadCartTotal();
+    })
+}
+function loadCartTotal() {
+    const checkboxes = document.querySelectorAll('table input[type="checkbox"]');
+    let cartTotalQuantity = document.getElementById("cart-total-quantity");
+    let cartTotalPrice = document.getElementById("cart-total-price");
+
+    let totalQuantity = 0;
+    let totalPrice = 0;
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            const row = checkboxes[i].closest('tr');
+
+            totalPrice = totalPrice + parseInt(row.cells[5].querySelector('span').innerText);
+            totalQuantity = totalQuantity + parseInt(row.cells[4].querySelector('input').value);
+        }
+    }
+    cartTotalPrice.innerText = totalPrice;
+    cartTotalQuantity.innerText = totalQuantity;
+}
+
+async function sendToOrder() {
+    const checkboxes = document.querySelectorAll('table input[type="checkbox"]');
+    let cartTotalQuantity = document.getElementById("cart-total-quantity");
+    let cartTotalPrice = document.getElementById("cart-total-price");
+
+    let carts = [];
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            carts.push(checkboxes[i].id)
+        }
+    }
+
+    const queryString = `?data=${encodeURIComponent(JSON.stringify({
+        carts: carts,
+        totalQuantity: cartTotalQuantity.innerText,
+        totalPrice: cartTotalPrice.innerText
+    }))}`;
+    window.location.href = `/Order/Checkout${queryString}`;
+}
+

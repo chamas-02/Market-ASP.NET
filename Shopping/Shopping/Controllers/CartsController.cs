@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using PagedList.Core;
 using AspNetCoreHero.ToastNotification.Helpers;
 using System.Text.Json;
+using System.Linq.Expressions;
 
 namespace Shopping.Controllers
 {
@@ -131,6 +132,51 @@ namespace Shopping.Controllers
                 return Ok(data);
             }
             return NotFound(new { message = "Không tìm thấy sản phẩm" });
+        }
+
+        [HttpGet]
+        [Route("/removeFromCart/{cartId}", Name = ("removeFromCart"))]
+        public async Task<IActionResult> RemoveFromCart(int cartId)
+        {
+            try
+            {
+                var cart = await _context.Carts.FindAsync(cartId);
+                _context.Carts.Remove(cart);
+                await _context.SaveChangesAsync();
+
+                var data = new
+                {
+                    message = "Đã xóa sản phẩm khỏi giỏ hàng"
+                };
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Route("/updateCartQuantity/{cartId}/{quantity}", Name = ("updateCartQuantity"))]
+        public async Task<IActionResult> UpdateCartQuantity(int cartId, int quantity)
+        {
+            try
+            {
+                var cart = await _context.Carts.FindAsync(cartId);
+                cart.Quantity = quantity;
+                _context.Update(cart);
+                await _context.SaveChangesAsync();
+
+                var data = new
+                {
+                    message = "Đã cập nhật số lượng"
+                };
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message.ToString() });
+            }
         }
     }
 }

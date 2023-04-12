@@ -42,9 +42,9 @@
                                 </thead>
                                 <tbody>
                                     @foreach ( var item in Model) {
-                                        <tr>
+                                        <tr id="cart-item-@item.CartId" >
                                             <td>
-                                                <input type="checkbox">
+                                                <input type="checkbox" onchange="loadCartTotal()" id="@item.CartId">
                                             </td>
                                             <td class="product-thumbnail" width="100px" height="100px">
                                                 <a href="javascript:void(0)">
@@ -54,13 +54,13 @@
                                             <td class="product-name"><a href="javascript:void(0)">@item.Product.ProductName</a></td>
                                             <td class="product-price"><span class="amount">@item.Product.Price</span></td>
                                             <td class="quantity">
-                                                <div class="cart-plus-minus">
+                                                <div class="cart-plus-minus" onclick="updateCartQuantity(@item.CartId, this.querySelector('input').value)">
                                                     <input class="cart-plus-minus-box" value="@item.Quantity" type="text">
                                                 </div>
                                             </td>
                                             <td class="product-subtotal"><span class="amount">@(item.Quantity*item.Product.Price)</span></td>
                                             <td class="product_remove">
-                                                <a href="javascript:void(0)">
+                                                <a onclick="removeFromCart(@item.CartId)" href="javascript:void(0)">
                                                     <i class="pe-7s-close" title="Remove"></i>
                                                 </a>
                                             </td>
@@ -70,27 +70,14 @@
                             </table>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="coupon-all">
-                                    <div class="coupon">
-                                        <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
-                                        <input class="button mt-xxs-30" name="apply_coupon" value="Apply coupon" type="submit">
-                                    </div>
-                                    <div class="coupon2">
-                                        <input class="button" name="update_cart" value="Update cart" type="submit">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-5 ml-auto">
                                 <div class="cart-page-total">
-                                    <h2>Cart totals</h2>
+                                    <h2>Thông tin giỏ hàng</h2>
                                     <ul>
-                                        <li>Subtotal <span>$118.60</span></li>
-                                        <li>Total <span>$118.60</span></li>
+                                        <li>Sản phẩm <span id="cart-total-quantity" >0</span></li>
+                                        <li>Tổng tiền <span id="cart-total-price" >0</span></li>
                                     </ul>
-                                    <a href="javascript:void(0)">Proceed to checkout</a>
+                                    <a onclick="sendToOrder()" href="javascript:void(0)">Đặt hàng</a>
                                 </div>
                             </div>
                         </div>
