@@ -50,12 +50,7 @@
                                         <i class="pe-7s-search"></i>
                                     </a>
                                 </li>
-                                <li class="minicart-wrap me-3 me-lg-0">
-                                    <a onclick="getMiniCartDetail()" href="#miniCart" class="minicart-btn toolbar-btn">
-                                        <i class="pe-7s-shopbag"></i>
-                                        <span class="quantity">3</span>
-                                    </a>
-                                </li>
+                                @await Component.InvokeAsync("NumberCart")
                                 <li class="mobile-menu_wrap d-block d-lg-none">
                                     <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">
                                         <i class="pe-7s-menu"></i>
@@ -84,7 +79,7 @@
 
                                     <!-- ========== ABOUT ========== -->
                                     <li>
-                                        <a asp-controller="Home" asp-action="About">About</a>
+                                        <a asp-controller="Home" asp-action="About">Story</a>
                                     </li>
 
                                     <!-- ========== PRODUCT ========== -->
@@ -103,7 +98,7 @@
                                         </a>
                                         <ul class="drop-menu">
                                             <li>
-                                                <a asp-controller="Home" asp-action="About">Giới thiệu</a>
+                                                <a asp-controller="Home" asp-action="About">Our Story</a>
                                             </li>
                                             <li>
                                                 <a href="404.html">Chính sách đổi trả</a>
@@ -327,19 +322,7 @@
 
     <!-- ========== MINICART ========== -->
     <div class="offcanvas-minicart_wrapper" id="miniCart">
-        <div class="harmic-offcanvas-body">
-            <div class="minicart-content">
-                <div class="minicart-heading">
-                    <h4 class="mb-0">Shopping Cart</h4>
-                    <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
-                </div>
-                <ul class="minicart-list">
-                </ul>
-            </div>
-            <div class="group-btn_wrap d-grid gap-2">
-                <a asp-action="Index" asp-controller="Carts" class="btn btn-secondary btn-primary-hover">View Cart</a>
-            </div>
-        </div>
+        @await Component.InvokeAsync("HeaderCart")
     </div>
     <div class="global-overlay"></div>
 
