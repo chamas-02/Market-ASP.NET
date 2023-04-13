@@ -30,6 +30,7 @@
         document.getElementById("customer-district").querySelector(`option[value="${customerDistrict}"]`).selected = 'selected' ;
     }
 </script>
+}
 <!-- Begin Main Content Area -->
 <main class="main-content">
     <div class="breadcrumb-area breadcrumb-height" data-bg-image="assets/images/breadcrumb/bg/1-1-1920x373.jpg">
@@ -207,7 +208,6 @@
                                     </tfoot>
                                 </table>
                             </div>
-
                             <div onclick="order(document.getElementById('ship-box').checked, [@cartids],@Model.TotalPrice, document.getElementById('checkout-mess').value)" class="order-button-payment">
                                 <input value="Place order" type="button">
                             </div>

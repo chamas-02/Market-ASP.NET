@@ -28,7 +28,8 @@ namespace Shopping.Controllers
                 {"product_num", 8 },
                 {"discount_prod_num", 3 },
                 {"bestseller_num", 3 },
-                {"arrival_prod_num", 6}
+                {"arrival_prod_num", 6 },
+                {"mini_cart_num", 3},
             };
 
             HomeViewVM model = new HomeViewVM();
@@ -57,6 +58,7 @@ namespace Shopping.Controllers
                 model.Products = lsProductViews;
                 ViewBag.AllProducts = lsProducts;
             }
+
             return View(model);
         }
 

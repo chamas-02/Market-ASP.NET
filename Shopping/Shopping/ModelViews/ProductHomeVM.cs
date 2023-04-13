@@ -6,5 +6,6 @@ namespace Shopping.ModelViews
     {
         public Category category { get; set; }
         public List<Product> lsProducts { get; set; }
+
     }
 }

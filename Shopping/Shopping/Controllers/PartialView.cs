@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Shopping.Models;
+using Shopping.ModelViews;
 
 namespace Shopping.Controllers
 {
@@ -17,6 +18,7 @@ namespace Shopping.Controllers
             var lsCategorys = _context.Categories
                 .AsNoTracking()
                 .OrderBy(x => x.CatId);
+
             return PartialView();
         }
     }

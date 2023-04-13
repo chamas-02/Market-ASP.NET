@@ -10,5 +10,6 @@ namespace Shopping.ModelViews
         public List<ProductHomeVM> Products { get; set; }
         //public QuangCao quangcao { get; set; }
         //public List<TinDang> TinTucs { get; set; }
+
     }
 }

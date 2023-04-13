@@ -29,6 +29,13 @@ namespace Shopping.Controllers
             _context = context;
         }
 
+        public class CartDetails
+        {
+            public List<string> carts { get; set; }
+            public string totalQuantity { get; set; }
+            public string totalPrice { get; set; }
+        }
+
         // GET: Orders
         [HttpGet]
         [Route("/Order/Checkout")]
@@ -169,6 +176,12 @@ namespace Shopping.Controllers
             {
                 return BadRequest(new { message = "Không tìm thấy đơn hàng của bạn" });
             }
+            
+        [HttpPost]
+        [Route("/Order/Checkout")]
+        public IActionResult Index([FromBody] CartDetails cartDetails)
+        {
+            return View();
         }
 
     }

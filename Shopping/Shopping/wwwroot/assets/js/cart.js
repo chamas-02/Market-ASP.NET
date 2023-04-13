@@ -124,7 +124,6 @@ async function sendToOrder() {
             carts.push(checkboxes[i].id)
         }
     }
-
     const queryString = `?data=${encodeURIComponent(JSON.stringify({
         carts: carts,
         totalQuantity: cartTotalQuantity.innerText,
