@@ -79,22 +79,16 @@
                                                         <td>@item.ShipDate</td>
                                                         <td>@item.TransactStatus.Status</td>
                                                         <td>
-                                                            <a href="javascript:void(0)" class="xemdonhang" data-madonhang="@item.OrderId">Xem đơn hàng</a>
+                                                            <a href="javascript:;" onclick="orderDetail(@item.OrderId)" class="xemdonhang" data-madonhang="@item.OrderId">Xem đơn hàng</a>
                                                         </td>
                                                     </tr>
                                                 }
-
-
                                             </tbody>
                                         </table>
                                         <br />
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <hr />
-                                        <div id="records_table">
-
-                                        </div>
+                                    </div>
+                                    <div id="records-order" >
+                                        
                                     </div>
                                 }
                                 else
@@ -133,24 +127,24 @@
 </main>
 @section Scripts{
 <script>
-    $(document).ready(function () {
-        $(".xemdonhang").click(function () {
-            var madonhang = $(this).attr("data-madonhang")
-            $.ajax({
-                url: '/DonHang/Details',
-                datatype: "json",
-                type: "POST",
-                data: { id: madonhang },
-                async: true,
-                success: function (results) {
-                    $("#records_table").html("");
-                    $("#records_table").html(results);
-                },
-                error: function (xhr) {
-                    alert('error');
-                }
-            });
-        });
-    });
+    //$(document).ready(function () {
+    //    $(".xemdonhang").click(function () {
+    //        var madonhang = $(this).attr("data-madonhang")
+    //        $.ajax({
+    //            url: '/DonHang/Details',
+    //            datatype: "json",
+    //            type: "POST",
+    //            data: { id: madonhang },
+    //            async: true,
+    //            success: function (results) {
+    //                $("#records_table").html("");
+    //                $("#records_table").html(results);
+    //            },
+    //            error: function (xhr) {
+    //                alert('error');
+    //            }
+    //        });
+    //    });
+    //});
 </script>
 }

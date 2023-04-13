@@ -2,6 +2,34 @@
 @{
     var Customer = Model.Customer;
     var Locations = Model.Locations;
+    var cities = Locations.Where(l => l.Levels == 1).ToList();
+    var districts = Locations.Where(l => l.Levels == 2).ToList();
+    var wards = Locations.Where(l => l.Levels == 3).ToList();
+
+    var cartids = string.Join(" ,", Model.Details.Select(d => d.CartId).ToArray());
+}
+<script>
+    window.onload = function () {
+        loadDefaultValue();
+    };
+
+    function loadDefaultValue(){
+        var customerName = "@Customer.FullName";
+        var customerEmail = "@Customer.Email";
+        var customerPhone = "@Customer.Phone";
+        var customerAddress = "@Customer.Address";
+        var customerLocation = "@Customer.LocationId";
+        var customerWard = "@Customer.Ward";
+        var customerDistrict = "@Customer.District";
+        
+        document.getElementById("customer-email").value = customerEmail;
+        document.getElementById("customer-phone").value = customerPhone;
+        document.getElementById("customer-address").value = customerAddress;
+        document.getElementById("customer-location").querySelector(`option[value="${customerLocation}"]`).selected = 'selected';
+        document.getElementById("customer-ward").querySelector(`option[value="${customerWard}"]`).selected = 'selected';
+        document.getElementById("customer-district").querySelector(`option[value="${customerDistrict}"]`).selected = 'selected' ;
+    }
+</script>
 }
 <!-- Begin Main Content Area -->
 <main class="main-content">
@@ -29,51 +57,62 @@
                     <form action="javascript:void(0)">
                         <div class="checkbox-form">
                             <h3>Chi tiết đơn hàng</h3>
-                            <div class="row">
+                            <div class="row" id="customer-order-detail">
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Họ và tên <span class="required">*</span></label>
-                                        <input placeholder="" type="text" value="@Customer.FullName">
+                                        <input id="customer-name" placeholder="" type="text" value="@Customer.FullName">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="country-select clearfix">
                                         <label>Tỉnh - Thành Phố <span class="required">*</span></label>
-                                        <select class="myniceselect nice-select wide">
-                                            <option>Hồ Chí Minh</option>
+                                        <select id="customer-location" class="myniceselect nice-select wide">
+                                            @foreach(var city in cities)
+                                            {
+                                                <option value="@city.LocationId">@city.Name</option>
+                                            }
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Quận / Huyện <span class="required">*</span></label>
-                                        <select class="myniceselect nice-select wide">
-                                            <option>Quận Bình Thạnh</option>
+                                        <select id="customer-district" class="myniceselect nice-select wide">
+                                            @foreach(var district in districts)
+                                            {
+                                                <option value="@district.LocationId">@district.Name</option>
+                                            }
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Phường - Xã <span class="required">*</span></label>
-                                        <input placeholder="" type="text">
+                                        <select id="customer-ward" class="myniceselect nice-select wide">
+                                            @foreach (var ward in wards)
+                                            {
+                                                <option value="@ward.LocationId">@ward.Name</option>
+                                            }
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Địa chỉ chi tiết </label>
-                                        <input placeholder="Tên đường, số nhà, tầng, khu, ..." type="text">
+                                        <input id="customer-address" placeholder="Tên đường, số nhà, tầng, khu, ..." type="text">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Email <span class="required">*</span></label>
-                                        <input placeholder="" type="email">
+                                        <input id="customer-email"  placeholder="" type="email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Số điện thoại <span class="required">*</span></label>
-                                        <input type="text">
+                                        <input id="customer-phone"  type="text">
                                     </div>
                                 </div>
                             </div>
@@ -88,29 +127,40 @@
                                     <div class="col-md-6">
                                         <div class="country-select clearfix">
                                             <label>Tỉnh - Thành Phố <span class="required">*</span></label>
-                                            <select class="myniceselect nice-select wide">
-                                                <option>Hồ Chí Minh</option>
+                                            <select id="ship-location" class="myniceselect nice-select wide">
+                                                @foreach (var city in cities)
+                                                {
+                                                    <option value="@city.LocationId">@city.Name</option>
+                                                }
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="checkout-form-list">
                                             <label>Quận / Huyện <span class="required">*</span></label>
-                                            <select class="myniceselect nice-select wide">
-                                                <option>Quận Bình Thạnh</option>
+                                            <select id="ship-district" class="myniceselect nice-select wide">
+                                                @foreach (var district in districts)
+                                                {
+                                                    <option value="@district.LocationId">@district.Name</option>
+                                                }
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="checkout-form-list">
                                             <label>Phường - Xã <span class="required">*</span></label>
-                                            <input placeholder="" type="text">
+                                            <select id="ship-ward" class="myniceselect nice-select wide">
+                                                @foreach (var ward in wards)
+                                                {
+                                                    <option value="@ward.LocationId">@ward.Name</option>
+                                                }
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="checkout-form-list">
                                             <label>Địa chỉ chi tiết </label>
-                                            <input placeholder="Tên đường, số nhà, tầng, khu, ..." type="text">
+                                            <input id="ship-address" placeholder="Tên đường, số nhà, tầng, khu, ..." type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -158,9 +208,8 @@
                                     </tfoot>
                                 </table>
                             </div>
-                            
-                            <div class="order-button-payment">
-                                <input value="Place order" type="submit">
+                            <div onclick="order(document.getElementById('ship-box').checked, [@cartids],@Model.TotalPrice, document.getElementById('checkout-mess').value)" class="order-button-payment">
+                                <input value="Place order" type="button">
                             </div>
                         </div>
                     </div>

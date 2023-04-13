@@ -18,7 +18,6 @@
         }
     }).then(data => {
         showNotification(data["message"], 3000);
-        console.log(data);
     })
 }
 function showNotification(message, duration) {
@@ -36,7 +35,6 @@ async function getMiniCartDetail() {
             'Content-Type': 'application/json'
         }
     }).then(res => {
-        console.log(res)
         if (res.status == 200) {
             return res.json();
         }
@@ -76,12 +74,10 @@ async function removeFromCart(cartId) {
     }).then(data => {
         let cartItem = "cart-item-" + cartId;
         document.getElementById(cartItem).remove();
-        console.log(data);
         loadCartTotal();
     })
 }
 async function updateCartQuantity(cartId, quantity) {
-    console.log(cartId, quantity);
     fetch(`/updateCartQuantity/${cartId}/${quantity}`, {
         method: "get",
         headers: {
@@ -90,7 +86,6 @@ async function updateCartQuantity(cartId, quantity) {
     }).then(res => {
         return res.json();
     }).then(data => {
-        console.log(data);
         let cartItem = "cart-item-" + cartId;
         let row = document.getElementById(cartItem);
         row.cells[5].querySelector('span').innerText = parseInt(row.cells[3].querySelector('span').innerText) * quantity;
@@ -129,9 +124,6 @@ async function sendToOrder() {
             carts.push(checkboxes[i].id)
         }
     }
-
-    console.log(carts, cartTotalQuantity.innerText, cartTotalPrice.innerText);
-
     const queryString = `?data=${encodeURIComponent(JSON.stringify({
         carts: carts,
         totalQuantity: cartTotalQuantity.innerText,
